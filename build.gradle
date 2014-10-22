@@ -1,0 +1,33 @@
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 14
+    buildToolsVersion "19.1.0"
+
+    defaultConfig {
+        minSdkVersion 14
+        applicationId "teaonly.droideye"
+        targetSdkVersion 14
+
+        ndk {
+            moduleName "libx264_pre"
+        }
+    }
+
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    sourceSets {
+        main {
+            jni.srcDirs = []
+        }
+    }
+}
+
+dependencies {
+    compile files('libs/java_websocket.jar')
+}
